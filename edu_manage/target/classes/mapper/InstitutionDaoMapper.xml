@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间应该是对应接口的包名+接口名 -->
+<mapper namespace="com.edu.dao.InstitutionDao">
+    <insert id="regist" parameterType="com.edu.entity.User">
+        INSERT INTO users (username,password,rating) VALUES (#{username},#{password},#{rating})
+    </insert>
+    <select id="login" resultType="com.edu.entity.User">
+        SELECT * FROM users WHERE username=#{username}
+    </select>
+    <insert id="addInformation" parameterType="com.edu.entity.Records">
+        INSERT INTO records (student,recorder,record_type,Grade_cj,subject,remarks,grade_nj,competition_name,date) VALUES (#{student},#{recorder},#{record_type},#{Grade_cj},#{subject},#{remarks},#{grade_nj},#{competition_name},#{date})
+    </insert>
+</mapper>
